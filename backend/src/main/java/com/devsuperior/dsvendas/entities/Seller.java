@@ -11,23 +11,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_sallers")
+@Table(name = "tb_sellers")
 public class Seller {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long name;
-	
+	private String name;
 	
 	@OneToMany(mappedBy = "seller")
 	private List<Sale> sales = new ArrayList<>();
 	
 	public Seller() {
 	}
-	
-	
-	public Seller(Long id, Long name) {
+
+	public Seller(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -40,17 +38,15 @@ public class Seller {
 		this.id = id;
 	}
 
-	public Long getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Long name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	public List<Sale> getSales() {
 		return sales;
 	}
-	
-	
 }
